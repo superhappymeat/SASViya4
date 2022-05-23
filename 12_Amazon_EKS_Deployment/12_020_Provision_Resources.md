@@ -117,7 +117,7 @@ To stand up the infrastructure we need to deploy SAS Viya, we will rely on the [
    # Parse out the userid from your email address known by AWS
    docker container run --rm --group-add root \
    --user $(id -u):$(id -g) \
-   -v $HOME/.aws:/.aws  \
+   -v $HOME/.aws:/root/.aws  \
    --entrypoint aws \
    viya4-iac-aws sts get-caller-identity \
       --query UserId \
