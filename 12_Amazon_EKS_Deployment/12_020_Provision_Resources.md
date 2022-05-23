@@ -75,14 +75,14 @@ To stand up the infrastructure we need to deploy SAS Viya, we will rely on the [
    # aws configure list
    docker container run --rm --group-add root \
      --user $(id -u):$(id -g) \
-     -v $HOME/.aws:/.aws \
+     -v $HOME/.aws:/root/.aws \
      --entrypoint aws \
      viya4-iac-aws configure list
 
    # aws sts get-caller-identity
    docker container run --rm --group-add root \
      --user $(id -u):$(id -g) \
-     -v $HOME/.aws:/.aws \
+     -v $HOME/.aws:/root/.aws \
      --entrypoint aws \
      viya4-iac-aws sts get-caller-identity \
        --output json
